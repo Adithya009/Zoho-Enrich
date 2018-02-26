@@ -21,6 +21,7 @@ int main()
    scanf("%s%d",a,&x);
    /* If the number is reversed n times, it would start with the nth digit till the end
       And then from index 0 till n-1
+      No extra space required in this logic
    */
    printf("The rotated number is");
    for(i=x;i<strlen(a);i++)
