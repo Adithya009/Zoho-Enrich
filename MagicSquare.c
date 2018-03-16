@@ -59,9 +59,9 @@ void magicSquare(int n)
 int main() {
    int n,i,j;
    scanf("%d",&n);
-   if(n==0)
+   if(n<0 || n%2==0 )
    {
-       printf("Enter a postive order for magic square");
+       printf("Enter a postive and odd order for magic square");
        return 0;
    }
    magicSquare(n);
