@@ -1,36 +1,36 @@
 #include<stdio.h>
 #include<string.h>
-void compress(int n, char a[n])
-{
-    int i,freq[26] = {0};
-    
-    //stores frequency
-    for(i=0;i<n;i++)
+
+void compress(int n, char a[n]){
+    int i=0,j=0,count = 1;
+    while(i<n)
     {
-         freq[a[i]-97]++;
-    }
-    
-    //Checks for frequency based on its Ascii Value, prints if greater than or equal to one
-    for(i=0;i<n;i++)
-    {
-        if(freq[a[i]-97] > 0)
+        j = i+1;
+        //Until the next character is same, count increments
+        if(a[i] == a[j])
         {
-            if(freq[a[i]-97] == 1)
+            count++;
+            i++;
+        }
+        //prints occurence if next character is different
+        else
+        {
+            if(count > 1)
             {
-                printf("%c",a[i]);
+            printf("%c%d",a[i],count);
             }
             else
             {
-             printf("%c%d",a[i],freq[a[i]-97]);
+                printf("%c",a[i]);
             }
-            freq[a[i]-97] = -1;
+            count = 1;
+            i = j;
         }
     }
-    
 }
 int main() {
   char a[100];
-  scanf("%s",a);
+  scanf("%s",&a);
   int n = strlen(a);
   compress(n,a);
 }
